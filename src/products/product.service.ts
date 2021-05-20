@@ -9,4 +9,8 @@ export class ProductService {
     this.products.push({ ...data, id: Date.now().toString() });
     return this.products;
   }
+
+  getProducts() {
+    return this.products;
+  }
 }
