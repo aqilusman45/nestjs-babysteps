@@ -6,6 +6,10 @@ export class AppService {
     return 'Hello World!';
   }
 
+  getPage(): string {
+    return '<h1>Test Page</h1>'
+  }
+
   postHello(): string {
     return 'Post Hello!';
   }
