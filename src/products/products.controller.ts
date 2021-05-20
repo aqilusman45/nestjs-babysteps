@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { Product } from "./product.model";
+import { IProduct } from "./product.model";
 import { ProductService } from "./product.service";
 
 @Controller("products")
@@ -7,8 +7,8 @@ export class ProductsController {
   constructor(private readonly productService: ProductService) {}
 
   @Post("add-product")
-  addProduct(@Body() data: Omit<Product, "id">): Product[] {
-    return this.productService.addProduct(data);
+  async addProduct(@Body() data: Omit<IProduct, "id">): Promise<IProduct> {
+    return await this.productService.addProduct(data);
   }
 
   @Get("get-products")
